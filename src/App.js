@@ -1,28 +1,29 @@
-import './App.css';
+import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
+import Services from "./components/Services";
+
+import "./styles/App.scss";
+import "./styles/header.scss";
+import "./styles/home.scss";
+import "./styles/footer.scss";
+import "./styles/contact.scss";
+import "./styles/mediaquery.scss";
+ 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+     <Router>
+      <Header/> 
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/services" element={<Services/>} />
+      </Routes>
+      <Footer/>
+     </Router>
   );
 }
 
